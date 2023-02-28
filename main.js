@@ -15,124 +15,123 @@ let botonsumar=document.getElementById("botonsuma")
 let botonresta=document.getElementById("botonresta")
 let botonmulti=document.getElementById("botonmulti")
 let botondividir=document.getElementById("botondividir")
-let display=document.getElementById("imprimir")
+let display=document.getElementById("xd")
 let operandoa=0
 let operandoab=0
 let operandoc=0
-let valor=[]
-let suma=0
-let resta=0
-let multi=0
-let dividir=0
+let dato1=document.getElementById("input1")
+let dato2=document.getElementById("input2")
+
+
+
+
 boton1.addEventListener("click",()=>{
-    display.innerHTML+="1"
-    valor.push(1) 
+    display.innerHTML+=boton1.innerHTML    
 
 })
 boton2.addEventListener("click",()=>{
-    valor.push(2)
-    display.innerHTML+="2"
+  
+    display.innerHTML+=boton2.innerHTML
 
 })
 boton3.addEventListener("click",()=>{
-    valor.push(3)
-    display.innerHTML+="3"
+    
+    display.innerHTML+=boton3.innerHTML
 
 })
 boton4.addEventListener("click",()=>{
-    valor.push(4)
-    display.innerHTML+="4"
+    
+    display.innerHTML+=boton4.innerHTML
 
 })
 boton5.addEventListener("click",()=>{
-    valor.push(5)
-    display.innerHTML+="5"
+   
+    display.innerHTML+=boton5.innerHTML
 
 })
 boton6.addEventListener("click",()=>{
-    valor.push(6)
-    display.innerHTML+="6"
+    
+    display.innerHTML+=boton6.innerHTML
 
 })
 boton7.addEventListener("click",()=>{
-    valor.push(7)
-    display.innerHTML+="7"
+    
+    display.innerHTML+=boton7.innerHTML
 
 })
 boton8.addEventListener("click",()=>{
-    valor.push(8)
-    display.innerHTML+="8"
+    
+    display.innerHTML+=boton8.innerHTML
 
 })
 boton9.addEventListener("click",()=>{
-    valor.push(9)
-    display.innerHTML+="9"
-
+   
+    display.innerHTML+=boton9.innerHTML
 })
 boton0.addEventListener("click",()=>{
-    valor.push(0)
-    display.innerHTML+="0"
+    
+    display.innerHTML+=boton0.innerHTML
 
 })
 botonc.addEventListener("click",()=>{
     
     display.innerHTML=""
-    valor=[]
-    suma=0
-    resta=0
-    multi=0
-    resta=1
+    dato2.value=""
+    dato1.value=""
+   
 
 
 })
 botonsumar.addEventListener("click",()=>{
+    veri=true
+
    
     operadores="+"
-    display.innerHTML+=operadores
+    display.innerHTML=operadores
 
 })
 botonresta.addEventListener("click",()=>{
     operadores="-"
     
-    display.innerHTML+=operadores
+    display.innerHTML=operadores
 
 })
 botonmulti.addEventListener("click",()=>{
     operadores="*"
     
-    display.innerHTML+=operadores
+    display.innerHTML=operadores
 
 })
 botondividir.addEventListener("click",()=>{
     operadores="/"
    
-    display.innerHTML+=operadores
+    display.innerHTML=operadores
 
 })
 botonresultado.addEventListener("click",()=>{
     if(operadores=="+"){
-        for(let i=0;i<valor.length;i++){
-            suma+=valor[i]
-        }
-        display.innerHTML=suma
+        resultado=parseInt(dato1.value)+parseInt( dato2.value)
+        display.innerHTML=resultado
+
+        
       
         
 
     } 
     else if(operadores=="-"){
-        for(let i=0;i<valor.length;i++){
-            resta-=valor[i]
-        }
-        display.innerHTML=resta
+        resultado=parseInt(dato1.value)+ - parseInt( dato2.value)
+        display.innerHTML=resultado
+        
       
     }
     else if(operadores=="*"){
-        for(let i=0;i<valor.length;i++){
-
-           
-        }
-        display.innerHTML=multi
-
+        resultado=parseInt(dato1.value) * parseInt( dato2.value)
+        display.innerHTML=resultado
+        
+    }
+    else if(operadores=="/"){
+        resultado=parseInt(dato1.value)/parseInt( dato2.value)
+        display.innerHTML=resultado
     }
    
     
