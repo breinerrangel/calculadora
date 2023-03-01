@@ -19,124 +19,174 @@ let display=document.getElementById("xd")
 let operandoa=0
 let operandoab=0
 let operandoc=0
-let dato1=document.getElementById("input1")
+let guardar=[]
+let valor=0
 let dato2=document.getElementById("input2")
 
 
 
 
-boton1.addEventListener("click",()=>{
-    display.innerHTML+=boton1.innerHTML    
+// boton1.addEventListener("click",()=>{
+//     display.innerHTML+=boton1.innerHTML    
 
-})
-boton2.addEventListener("click",()=>{
+// })
+// boton2.addEventListener("click",()=>{
   
-    display.innerHTML+=boton2.innerHTML
+//     display.innerHTML+=boton2.innerHTML
 
-})
-boton3.addEventListener("click",()=>{
+// })
+// boton3.addEventListener("click",()=>{
     
-    display.innerHTML+=boton3.innerHTML
+//     display.innerHTML+=boton3.innerHTML
 
-})
-boton4.addEventListener("click",()=>{
+// })
+// boton4.addEventListener("click",()=>{
     
-    display.innerHTML+=boton4.innerHTML
+//     display.innerHTML+=boton4.innerHTML
 
-})
-boton5.addEventListener("click",()=>{
+// })
+// boton5.addEventListener("click",()=>{
    
-    display.innerHTML+=boton5.innerHTML
+//     display.innerHTML+=boton5.innerHTML
 
-})
-boton6.addEventListener("click",()=>{
+// })
+// boton6.addEventListener("click",()=>{
     
-    display.innerHTML+=boton6.innerHTML
+//     display.innerHTML+=boton6.innerHTML
 
-})
-boton7.addEventListener("click",()=>{
+// })
+// boton7.addEventListener("click",()=>{
     
-    display.innerHTML+=boton7.innerHTML
+//     display.innerHTML+=boton7.innerHTML
 
-})
-boton8.addEventListener("click",()=>{
+// })
+// boton8.addEventListener("click",()=>{
     
-    display.innerHTML+=boton8.innerHTML
+//     display.innerHTML+=boton8.innerHTML
 
-})
-boton9.addEventListener("click",()=>{
+// })
+// boton9.addEventListener("click",()=>{
    
-    display.innerHTML+=boton9.innerHTML
-})
-boton0.addEventListener("click",()=>{
+//     display.innerHTML+=boton9.innerHTML
+// })
+// boton0.addEventListener("click",()=>{
     
-    display.innerHTML+=boton0.innerHTML
+//     display.innerHTML+=boton0.innerHTML
 
-})
+   
+
+
+
 botonc.addEventListener("click",()=>{
     
     display.innerHTML=""
     dato2.value=""
-    dato1.value=""
+    guardar.length=0
+    valor=0
+    
+   
    
 
 
 })
 botonsumar.addEventListener("click",()=>{
-    veri=true
 
-   
     operadores="+"
+    guardar.push(parseInt(dato2.value))
+   
+    dato2.value=""
     display.innerHTML=operadores
 
 })
 botonresta.addEventListener("click",()=>{
     operadores="-"
+    guardar.push(parseInt(dato2.value))
+    dato2.value=""
+   
     
     display.innerHTML=operadores
 
 })
 botonmulti.addEventListener("click",()=>{
     operadores="*"
+    guardar.push(parseInt(dato2.value))
+  
+    dato2.value=""
     
     display.innerHTML=operadores
 
 })
 botondividir.addEventListener("click",()=>{
     operadores="/"
+    guardar.push(parseInt(dato2.value))
+   
+    dato2.value=""
    
     display.innerHTML=operadores
 
 })
 botonresultado.addEventListener("click",()=>{
     if(operadores=="+"){
-        resultado=parseInt(dato1.value)+parseInt( dato2.value)
-        display.innerHTML=resultado
+        guardar.push(parseInt(dato2.value))
+        dato2.value=""
+        for(let i=0;i<guardar.length;i++){
+            valor+=guardar[i]
+            console.log(valor)
 
+        }
+        display.innerHTML=valor
+        console.log(valor)
+       
+        
         
       
         
 
     } 
     else if(operadores=="-"){
-        resultado=parseInt(dato1.value)+ - parseInt( dato2.value)
-        display.innerHTML=resultado
+        guardar.push(parseInt(dato2.value))
+        dato2.value=""
+        valor=guardar[0]
+        for(let i=1;i<guardar.length;i++){
+            
+            valor-=guardar[i]
+
+        }
+        display.innerHTML=valor
         
       
     }
     else if(operadores=="*"){
-        resultado=parseInt(dato1.value) * parseInt( dato2.value)
-        display.innerHTML=resultado
+        guardar.push(parseInt(dato2.value))
+        dato2.value=""
+        valor=guardar[0]
+        for(let i=1;i<guardar.length;i++){
+            
+            valor*=guardar[i]
+
+        }
+        display.innerHTML=valor
+        
+
         
     }
     else if(operadores=="/"){
-        resultado=parseInt(dato1.value)/parseInt( dato2.value)
-        display.innerHTML=resultado
+        guardar.push(parseInt(dato2.value))
+        dato2.value=""
+        valor=guardar[0]
+        for(let i=1;i<guardar.length;i++){
+            
+            valor/=guardar[i]
+
+        }
+        display.innerHTML=valor
+        
     }
    
     
  
 
 })
+
 
 
