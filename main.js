@@ -1,4 +1,3 @@
-
 let boton1=document.getElementById("boton1")
 let boton2=document.getElementById("boton2")
 let boton3=document.getElementById("boton3")
@@ -16,61 +15,59 @@ let botonresta=document.getElementById("botonresta")
 let botonmulti=document.getElementById("botonmulti")
 let botondividir=document.getElementById("botondividir")
 let display=document.getElementById("imprimir")
-let operandoa=0
-let operandoab=0
-let operandoc=0
 let guardar=[]
 let valor=0
-let operando=""
+let operadores=""
+let borrar=false
 
 
 
 
 
  boton1.addEventListener("click",()=>{
-     display.innerHTML+=boton1.innerHTML    
+    display.innerHTML+=1    
 
 })
 boton2.addEventListener("click",()=>{
   
-    display.innerHTML+=boton2.innerHTML
+    display.innerHTML+=2
 
 })
 boton3.addEventListener("click",()=>{
     
-    display.innerHTML+=boton3.innerHTML
+    display.innerHTML+=3
 
 })
  boton4.addEventListener("click",()=>{
     
-    display.innerHTML+=boton4.innerHTML
+    display.innerHTML+=4
  })
 boton5.addEventListener("click",()=>{
    
-    display.innerHTML+=boton5.innerHTML
+    display.innerHTML+=5
 
 })
 boton6.addEventListener("click",()=>{
  
-    display.innerHTML+=boton6.innerHTML
+    display.innerHTML+=6
 
 })
 boton7.addEventListener("click",()=>{
     
-    display.innerHTML+=boton7.innerHTML
+    display.innerHTML+=7
 
 })
 boton8.addEventListener("click",()=>{
     
-    display.innerHTML+=boton8.innerHTML
+    display.innerHTML+=8
  })
 boton9.addEventListener("click",()=>{
    
-     display.innerHTML+=boton9.innerHTML
+    display.innerHTML+=9
 })
- boton0.addEventListener("click",()=>{
+boton0.addEventListener("click",()=>{
     
-   display.innerHTML+=boton0.innerHTML
+   display.innerHTML+=0
  })
 
    
@@ -80,8 +77,7 @@ boton9.addEventListener("click",()=>{
 botonc.addEventListener("click",()=>{
     
     display.innerHTML=""
-    
-    guardar.length=0
+    guardar=[]
     valor=0
     
    
@@ -91,7 +87,7 @@ botonc.addEventListener("click",()=>{
 })
 botonsumar.addEventListener("click",()=>{
 
-    operadores="+"
+   operadores="+"
     guardar.push(parseInt(display.innerHTML))
     display.innerHTML=""
     
@@ -103,6 +99,7 @@ botonsumar.addEventListener("click",()=>{
 
 })
 botonresta.addEventListener("click",()=>{
+   
     operadores="-"
     guardar.push(parseInt(display.innerHTML))
     display.innerHTML=""
@@ -132,124 +129,124 @@ botondividir.addEventListener("click",()=>{
 
 })
 botonresultado.addEventListener("click",()=>{
-    guardar.push(parseInt(display.innerHTML))
+  
+       guardar.push(parseInt(display.innerHTML))
+        
+
+    
+   
     if(operadores=="+"){       
         for(let i=0;i<guardar.length;i++){
-           valor+=guardar[i]
-            
-
+           valor+=guardar[i]     
         }
-        guardar=[]
-        guardar.push(valor)
-
+        
        
         display.innerHTML=valor
+        guardar=[]
+        valor=0
         
-       
-        
-        
-      
-        
+        borrar=true
+            
 
     } 
-    else if(operadores=="-"){
-        guardar.push(parseInt(display.innerHTML))
-        valor=guardar[0]
-        for(let i=1;i<guardar.length;i++){
-            
-            valor-=guardar[i]
-
-        }
+    if (borrar==true) {
+      guardar.shift(0,1)
+      borrar=false
       
+    }
+    else if(operadores=="-"){
         
-        display.innerHTML=valor
+        valor=guardar[0]
+        for(let i=1;i<guardar.length;i++){        
+            valor-=guardar[i]
+        } 
         
+        display.innerHTML=valor  
+        guardar=[]
+        valor=0
+        borrar==true
+      
+    }
+    if (borrar==true) {
+      guardar.shift()
+      borrar=false
       
     }
     else if(operadores=="*"){
-        guardar.push(parseInt(display.innerHTML))
+        
         
         valor=guardar[0]
-        for(let i=1;i<guardar.length;i++){
-            
+        for(let i=1;i<guardar.length;i++){       
             valor*=guardar[i]
-
         }
         display.innerHTML=valor
-        
-
+        guardar=[]
+        valor=0
         
     }
     else if(operadores=="/"){
-        guardar.push(parseInt(display.innerHTML))
+        
        
         valor=guardar[0]
-        for(let i=1;i<guardar.length;i++){
-            
+        for(let i=1;i<guardar.length;i++){       
             valor/=guardar[i]
-
         }
         display.innerHTML=valor
+        guardar=[]
+        valor=0
         
-    }
-   
-    
+    }  
  
-
 })
 
-// function sumar(){
-//     icono=event.keyCode;
-//     if(icono==107){
+
+
+
+
+addEventListener("keypress",evento=>{
+    if(!isNaN(evento.key)){
+        display.innerHTML+=(evento.key)
+    }
+    
+    
+})
+document.addEventListener("keypress",evento=>{
+    if((evento.key)=="+"){
+        operadores="+"
+        guardar.push(parseInt(display.innerHTML))
+        display.innerHTML=""
         
-//         guardar.push(parseInt(display.innerHTML))
-//         display.innerHTML=""
         
-    
 
-//     }
-
-// }
-// window.onkeydown=sumar
-
-    
-
- 
-    
-    
-
-
-
-// function restar(){
-//     icono2=event.keyCode
-//     if(icono2==109){
-       
-//         guardar.push(parseInt(display.innerHTML))
-//         display.innerHTML=""
+    }
+    else if((evento.key)=="-"){
+        operadores="-"
+        guardar.push(parseInt(display.innerHTML))
+        display.innerHTML=""
+    }
+    else if((evento.key)=="*"){
+        operadores="*"
+        guardar.push(parseInt(display.innerHTML))
+        display.innerHTML=""
+    }
+    else if((evento.key)=="/"){
+        operadores="/"
+        guardar.push(parseInt(display.innerHTML))
+        display.innerHTML=""
+    }
+    else if((evento.key)=="Enter"){
+        guardar.push(parseInt(display.innerHTML))
         
-    
-
-//     }
-// }
-
-
-
-
-function resultado(){
-    respuesta=event.keyCode
-    if(respuesta==13){
-        if(operando=="+"){       
+        if(operadores=="+"){  
+          
             for(let i=0;i<guardar.length;i++){
                valor+=guardar[i]
                 
     
             }
-            guardar=[]
-           
-            guardar.push(valor)
-    
-           
             display.innerHTML=valor
+            guardar=[]
+            valor=0
             
            
             
@@ -258,8 +255,7 @@ function resultado(){
             
     
         } 
-        else if(window==restar()){
-            guardar.push(parseInt(display.innerHTML))
+        else if(operadores=="-"){
             valor=guardar[0]
             for(let i=1;i<guardar.length;i++){
                 
@@ -269,11 +265,12 @@ function resultado(){
           
             
             display.innerHTML=valor
-            
+            guardar=[]
+            valor=0
           
         }
         else if(operadores=="*"){
-            guardar.push(parseInt(display.innerHTML))
+        
             
             valor=guardar[0]
             for(let i=1;i<guardar.length;i++){
@@ -282,12 +279,14 @@ function resultado(){
     
             }
             display.innerHTML=valor
+            guardar=[]
+            valor=0
             
     
             
         }
         else if(operadores=="/"){
-            guardar.push(parseInt(display.innerHTML))
+           
            
             valor=guardar[0]
             for(let i=1;i<guardar.length;i++){
@@ -296,27 +295,20 @@ function resultado(){
     
             }
             display.innerHTML=valor
+            guardar=[]
+            valor=0
             
         }
+      
+    }
 
-    }
-}
-
-addEventListener("keypress",evento=>{
-    if(!isNaN(evento.key)){
-        display.innerHTML+=(evento.key)
-    }
-    else{
-        operando=evento.key
-    }
-})
-addEventListener("keypress",evento=>{
-    if(isNaN(evento.key)){
-        operando=evento.key
-
-    }
+    
     
 })
-
-
-
+document.addEventListener("keypress",evento=>{
+    if((evento.key)=="r"){
+        display.innerHTML=""
+        valor=0
+        guardar=[]
+    }
+})

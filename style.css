@@ -1,17 +1,28 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    font-family: 'Shantell Sans', cursive;
+}
 .contenedor{
     
     margin: 81px auto;
-    width: 500px ;
+    width: 400px ;
     
   
-    height: 505px;
+    height: 470px;
     padding: 0px;
     border-radius: 10px;
+    
+    background-color: rgba(255, 255, 255, 0.089);
+    box-shadow: 3px 5px 3px 3px rgba(0, 0, 0, 0.171);
   
 }
 .box-display{
@@ -20,25 +31,18 @@
     height: 15%;
     display: flex;
     justify-content: center;
-
+    overflow: auto;
     
     padding: 8px;
     border-radius: 10px;
-    background-color: cornflowerblue;
+  
    
     
     
 }
-.box-display input{
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-size: 25px; 
-    border:none ;
-    background-color: coral;
-    color: white;
+
     
-}
+
 .display{
     
    
@@ -46,15 +50,17 @@
     height: 50px;
     display: flex;
     justify-content: center;
-    background-color: coral;
+   
+ 
+   
 
     
 }
-label{
-    font-size: 40px;
-    margin-left: 5px;
-    margin-right: 5px;
+::-webkit-scrollbar{
+  display: none;
 }
+
+
 .box-botones{
     margin-top: 5px;
    
@@ -62,49 +68,57 @@ label{
     height: 85%;
     display: flex;
     border-radius: 10px;
-    background-color: darkgray;
+    
+
     
 }
 .numero button{
     margin-top:13px;
     margin-right: 10px;
-    width: 90px;
-    height: 90px;
+    width: 83px;
+    height: 83px;
     font-size: 20px;
-    border-radius: 50%;
+    background-color: transparent;
+    color: white;
     border: none;
   
   
 }
 .numero button:hover{
-    background-color: coral;
+    background-color:white;
+    color: black;
 }
 .numero{
     width: 80%;
     
     
     height: 100%;
-    padding-left: 20px;
+
 }
 .operadores{
     width: 30%;
     padding: 5px;
 }
 .operadores button{
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     margin-top: 10px;
     font-size: 30px;
-    color: coral;
-    border-radius: 50%;
+    color: white;
+    background-color: transparent;
+   
     border: none;
 
 }
 .operadores button:hover{
     color: black;
-    background-color: coral;
+    background-color:white;
 }
 #imprimir{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
+    color: white;
+    
+   
+    margin-top: 5px;
 }
